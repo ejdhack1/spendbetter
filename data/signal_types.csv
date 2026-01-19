@@ -1,0 +1,15 @@
+code,name,description,category,default_weight
+election_denial,Election Denial Funding,Donations to candidates who objected to 2020 election certification,democracy,5
+trump_pac,Major Trump PAC Donations,Significant donations to Trump campaigns or affiliated PACs,democracy,4
+anti_voting,Anti-Voting Rights Lobbying,Lobbying against voting access legislation,democracy,4
+gop_donations,GOP Political Donations,General Republican Party or candidate donations,democracy,1
+post_jan6_funding,Post-Jan 6 Funding,Continued donations to election objectors after January 6,democracy,5
+ice_contracts,ICE/DHS Contracts,Federal contracts supporting immigration enforcement,civil_rights,4
+surveillance_tech,Surveillance Technology,Technology or services enabling government surveillance,civil_rights,3
+anti_lgbtq,Anti-LGBTQ Funding,Donations to anti-LGBTQ organizations or causes,civil_rights,4
+dei_rollback,DEI Program Elimination,Public rollback or elimination of diversity programs,civil_rights,3
+anti_reproductive,Anti-Reproductive Rights,Funding or advocacy against reproductive healthcare access,civil_rights,4
+anti_union,Anti-Union Actions,Union-busting activities or anti-organizing campaigns,labor,3
+labor_violations,Labor Law Violations,Documented violations of labor law or worker protections,labor,4
+wage_theft,Wage Theft,Documented wage theft or compensation violations,labor,4
+anti_regulation,Anti-Regulatory Lobbying,Heavy lobbying against consumer or worker protections,labor,2

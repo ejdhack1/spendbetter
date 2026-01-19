@@ -1,0 +1,18 @@
+company_slug,signal_type_code,title,description,evidence_url,evidence_source,evidence_date
+home-depot,trump_pac,PAC and executive donations to Trump,Major PAC and executive donations to Republican candidates including Trump,https://www.opensecrets.org/orgs/home-depot/summary?id=D000000419,OpenSecrets,2024-01-01
+home-depot,post_jan6_funding,Donations to election objectors after Jan 6,Continued corporate PAC funding to lawmakers who objected to election certification,https://www.citizensforethics.org/reports-investigations/crew-reports/companies-funding-sedition-caucus/,CREW,2021-06-01
+home-depot,ice_contracts,Alleged ICE enforcement cooperation,Reports of cooperation with ICE enforcement actions,https://mijente.net/ice-out-of-my-wallet/,ICE Out of My Wallet,2020-01-01
+home-depot,dei_rollback,DEI commitment removals,Removal of public DEI commitments,https://apnews.com/article/dei-diversity-companies-backlash,AP News,2024-01-01
+walmart,dei_rollback,DEI program reductions,Significant reductions to diversity equity and inclusion programs,https://apnews.com/article/walmart-dei-diversity-equity-inclusion,AP News,2024-11-01
+walmart,anti_regulation,Heavy anti-regulation lobbying,Significant lobbying against labor and consumer protections,https://www.opensecrets.org/orgs/walmart/lobbying?id=D000000367,OpenSecrets,2024-01-01
+hobby-lobby,anti_reproductive,Anti-reproductive rights advocacy,Supreme Court case fighting contraception coverage requirements,https://www.supremecourt.gov/opinions/13pdf/13-354_olp1.pdf,Supreme Court,2014-06-30
+hobby-lobby,anti_lgbtq,Religious nationalist funding,Funding of religious organizations opposing LGBTQ rights,https://www.opensecrets.org/orgs/hobby-lobby-stores/summary?id=D000067588,OpenSecrets,2024-01-01
+chick-fil-a,anti_lgbtq,Anti-LGBTQ funding history,Documented history of donations to anti-LGBTQ organizations,https://www.vox.com/the-goods/2019/5/29/18644354/chick-fil-a-anti-gay-donations-controversy-explained,Vox,2019-05-29
+amazon,ice_contracts,AWS contracts with ICE and DHS,Cloud computing contracts supporting immigration enforcement operations,https://www.usaspending.gov,USAspending.gov,2024-01-01
+amazon,surveillance_tech,Surveillance infrastructure for agencies,Technology infrastructure supporting government surveillance programs,https://www.propublica.org,ProPublica,2023-01-01
+amazon,labor_violations,Whole Foods labor violations,Labor violations at subsidiary Whole Foods Market,https://www.nlrb.gov,NLRB,2023-01-01
+microsoft,ice_contracts,Software contracts supporting ICE,Software and cloud contracts supporting ICE operations,https://www.usaspending.gov,USAspending.gov,2024-01-01
+dell,ice_contracts,Technology contracts with ICE,Hardware and technology contracts supporting ICE operations,https://www.usaspending.gov,USAspending.gov,2024-01-01
+chase,anti_regulation,Heavy deregulatory lobbying,Significant lobbying against financial regulation,https://www.opensecrets.org/orgs/jpmorgan-chase-co/lobbying?id=D000000103,OpenSecrets,2024-01-01
+wells-fargo,anti_regulation,Anti-regulatory political funding,Political funding supporting deregulatory policies,https://www.opensecrets.org/orgs/wells-fargo/summary?id=D000000186,OpenSecrets,2024-01-01
+bank-of-america,anti_regulation,Deregulatory lobbying,Heavy lobbying against consumer financial protections,https://www.opensecrets.org/orgs/bank-of-america/lobbying?id=D000000090,OpenSecrets,2024-01-01

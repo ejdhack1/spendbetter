@@ -1,0 +1,12 @@
+slug,name,parent_company,description,website,primary_category
+home-depot,Home Depot,,Major home improvement retailer,https://www.homedepot.com,home-improvement
+walmart,Walmart,,Multinational retail corporation,https://www.walmart.com,general-retail
+hobby-lobby,Hobby Lobby,,Arts and crafts retail chain,https://www.hobbylobby.com,general-retail
+chick-fil-a,Chick-fil-A,,Fast food restaurant chain,https://www.chick-fil-a.com,food-restaurants
+amazon,Amazon,,E-commerce and cloud computing company,https://www.amazon.com,tech
+microsoft,Microsoft,,Technology and software company,https://www.microsoft.com,tech
+dell,Dell,,Computer technology company,https://www.dell.com,tech
+chase,JPMorgan Chase,JPMorgan Chase & Co,Major commercial and investment bank,https://www.chase.com,banking
+wells-fargo,Wells Fargo,,Multinational financial services company,https://www.wellsfargo.com,banking
+bank-of-america,Bank of America,,Multinational investment bank and financial services,https://www.bankofamerica.com,banking
+whole-foods,Whole Foods Market,Amazon,Supermarket chain specializing in organic foods,https://www.wholefoodsmarket.com,general-retail

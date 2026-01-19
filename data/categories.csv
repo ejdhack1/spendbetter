@@ -1,0 +1,11 @@
+slug,name,description,icon,sort_order
+home-improvement,Home Improvement & Hardware,Tools and supplies for home repair and renovation,🏠,1
+general-retail,General Retail & Household,Everyday shopping for groceries and household goods,🛒,2
+clothing,Clothing & Fashion,Apparel and accessories,👕,3
+food-restaurants,Food & Restaurants,Dining out and fast food,🍔,4
+tech,Tech & Online Services,Electronics and digital services,📱,5
+banking,Banking & Financial Services,Banks and financial products,💳,6
+transportation,Transportation,Vehicles and mobility services,🚗,7
+media-entertainment,Media & Entertainment,Streaming and media consumption,📺,8
+health-pharmacy,Health & Pharmacy,Healthcare products and services,💊,9
+travel,Travel & Hospitality,Hotels and travel services,✈️,10

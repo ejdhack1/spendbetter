@@ -1,0 +1,378 @@
+# Ethical Spending Guide  
+## Avoiding Corporations That Backed Trump-Era or Anti-Democratic Policies
+
+**Purpose:**  
+Help consumers make everyday purchasing decisions that avoid financially supporting corporations linked to:
+- Trump-aligned political funding
+- Election denial
+- ICE enforcement and surveillance
+- DEI rollbacks
+- Anti-labor or anti–civil rights behavior
+
+This guide emphasizes **practical substitutes**, not just boycotts.
+
+---
+
+## How Companies Are Evaluated
+
+Corporations are flagged using publicly verifiable signals:
+
+### Primary Signal Types
+
+- Political donations to Trump or election deniers
+- Corporate PAC funding to anti-democratic lawmakers
+- Federal contracts with ICE, DHS, or surveillance agencies
+- Public rollback or elimination of DEI programs
+- Anti-union actions or labor violations
+- Public support for culture-war or anti–civil rights policies
+
+### Source Types
+
+- Federal Election Commission (FEC) data  
+- OpenSecrets.org political finance database  
+- USAspending.gov federal contract database  
+- AP News, Reuters, ProPublica reporting  
+- CREW (Citizens for Responsibility and Ethics in Washington)  
+- Grab Your Wallet Alliance  
+- ICE Out of My Wallet campaign
+
+---
+
+## 🏠 Home Improvement & Hardware
+
+### ❌ Home Depot
+
+**Why flagged:**
+- Major PAC and executive donations to Republican candidates, including Trump
+- Donations to election objectors after Jan 6
+- Allegations of cooperation with ICE enforcement actions
+- Removal of DEI public commitments
+
+**Sources:**
+- OpenSecrets.org — corporate PAC donations
+- CREW — post–Jan 6 corporate funding
+- ICE Out of My Wallet campaign reports
+- AP News on DEI rollback trends
+
+### ✅ Better Options
+
+#### ✅ Local Independent Hardware Stores
+- Family-owned hardware stores
+- Local lumber yards
+
+**Why better:**
+- No national PAC spending
+- Supports local economies
+
+---
+
+#### ✅ Ace Hardware (Franchise-Based)
+
+**Caveat:**
+- Corporate policies vary
+- But most stores are locally owned
+
+**Why better:**
+- Majority of profits stay local
+- Reduced centralized political funding
+
+---
+
+#### ✅ Specialty Supply Stores
+
+- Electrical supply houses
+- Plumbing supply stores
+- Flooring warehouses
+
+**Why better:**
+- Often cheaper
+- Politically neutral
+
+---
+
+## 🛒 General Retail & Household Goods
+
+### ❌ Walmart
+
+**Why flagged:**
+- DEI program reductions
+- Heavy lobbying against labor and consumer protections
+- Significant conservative political influence
+
+**Sources:**
+- AP News
+- Corporate SEC filings
+- Labor advocacy reports
+
+### ✅ Better Options
+
+#### ✅ Costco
+
+**Why better:**
+- Higher labor standards
+- Less partisan political spending
+- Public employee benefits reporting
+
+---
+
+#### ✅ Aldi / Lidl
+
+**Why better:**
+- European ownership
+- Lower U.S. political engagement
+- Low prices with minimal lobbying footprint
+
+---
+
+#### ✅ Grocery Co-ops & Independent Stores
+
+**Why better:**
+- Member-owned or family-owned
+- No national political funding pipelines
+
+---
+
+## 👕 Clothing & Shoes
+
+### ❌ Hobby Lobby
+
+**Why flagged:**
+- Religious nationalist funding
+- Anti-reproductive rights advocacy
+
+**Sources:**
+- Supreme Court filings
+- Public donor disclosures
+
+---
+
+### ✅ Better Options
+
+#### ✅ Patagonia
+
+**Why better:**
+- Corporate charter includes social mission
+- Funds voting rights and climate orgs
+
+---
+
+#### ✅ REI
+
+**Why better:**
+- Cooperative ownership model
+- Public lands and environmental advocacy
+
+---
+
+#### ✅ Thrift and Resale
+
+- ThredUp
+- Poshmark
+- Local consignment shops
+
+**Why better:**
+- No corporate political spending
+- Sustainable
+
+---
+
+## 🍔 Food & Restaurants
+
+### ❌ Chick-fil-A
+
+**Why flagged:**
+- Anti-LGBTQ funding history
+- Conservative religious political donations
+
+**Sources:**
+- IRS nonprofit disclosures
+- Advocacy group reports
+
+---
+
+### ✅ Better Options
+
+#### ✅ Local Restaurants
+
+Especially:
+- Immigrant-owned
+- Family-owned
+
+**Why better:**
+- Money stays in community
+- No corporate lobbying
+
+---
+
+#### ✅ Shake Shack
+
+**Why better:**
+- Public DEI commitments
+- Better labor policies than most chains
+
+---
+
+## 📱 Tech & Online Services
+
+### ❌ Amazon
+
+**Why flagged:**
+- AWS contracts with ICE and DHS
+- Whole Foods labor violations
+- Surveillance infrastructure for enforcement agencies
+
+**Sources:**
+- USAspending.gov
+- ICE Out of My Wallet campaign
+- ProPublica investigations
+
+---
+
+### ❌ Microsoft & Dell
+
+**Why flagged:**
+- Software and cloud contracts supporting ICE operations
+
+---
+
+### ✅ Better Options (When Possible)
+
+#### ✅ Apple
+
+**Caveat:**
+- Still large corporate actor
+- Stronger privacy posture
+- Less ICE enforcement infrastructure
+
+---
+
+#### ✅ Independent SaaS Providers
+
+When possible:
+- Choose smaller vendors
+- Avoid monopolized platforms
+
+---
+
+## 💳 Banking & Financial Services
+
+### ❌ Mega Banks
+
+Commonly flagged:
+- Chase
+- Wells Fargo
+- Bank of America
+
+**Why flagged:**
+- Heavy lobbying against regulation
+- Political funding of deregulatory policies
+
+---
+
+### ✅ Better Options
+
+#### ✅ Credit Unions
+
+**Why better:**
+- Member-owned
+- Minimal political spending
+
+---
+
+#### ✅ Community Banks
+
+**Why better:**
+- Local investment
+- Smaller lobbying footprint
+
+---
+
+## 🚗 Transportation
+
+### ❌ Fossil Fuel Companies
+
+**Why flagged:**
+- Anti-climate lobbying
+- Political spending against environmental regulation
+
+---
+
+### ✅ Better Options
+
+- Public transit when possible
+- Hybrid or EV vehicles
+- Car-sharing programs
+
+---
+
+## 📺 Media & Entertainment
+
+### ❌ Platforms Promoting Extremist Content
+
+**Why flagged:**
+- Algorithmic amplification of misinformation
+- Hosting election denial personalities
+
+---
+
+### ✅ Better Options
+
+- PBS and NPR donations
+- Streaming services without political propaganda ecosystems
+
+---
+
+## Data Sources & Tools
+
+### Political Donations
+
+- https://www.opensecrets.org  
+- https://www.followthemoney.org  
+- https://www.fec.gov/data
+
+### Federal Contracts
+
+- https://www.usaspending.gov  
+- https://www.fpds.gov
+
+### Watchdog & Advocacy
+
+- https://www.citizensforethics.org (CREW)
+- https://www.grabyourwallet.org
+- https://mijente.net/ice-out-of-my-wallet/
+- https://colorofchange.org
+
+### Consumer Tools
+
+- Progressive Shopper (browser extension): https://progressiveshopper.com
+- Goods Unite Us (mobile app): https://www.goodsuniteus.com
+- Buycott App: https://www.buycott.com
+
+---
+
+## Design Philosophy
+
+This guide follows three principles:
+
+1. **Evidence-based** — all claims trace to public sources  
+2. **Practical** — always offer realistic substitutes  
+3. **Transparent** — scoring logic and sources are visible
+
+This is not a boycott list.  
+It is a **values-aligned decision support tool** for consumers.
+
+---
+
+## Suggested Next Steps for Tool Builders
+
+To turn this into an application:
+
+1. Build a Companies table
+2. Store each claim as a separate Signal with source link
+3. Compute risk scores from weighted signals
+4. Link each category to substitute vendors
+5. Allow crowd-submitted evidence with moderation
+
+---
+
+*Last updated: January 2026*  

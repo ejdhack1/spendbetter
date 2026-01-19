@@ -1,0 +1,23 @@
+slug,name,description,website,type,practicality,for_categories
+local-hardware,Local Independent Hardware,Family-owned hardware stores and local lumber yards,,local_tip,moderate,home-improvement
+ace-hardware,Ace Hardware,Franchise-based hardware stores where most profits stay local,https://www.acehardware.com,national,easy,home-improvement
+specialty-supply,Specialty Supply Stores,Electrical and plumbing supply houses and flooring warehouses,,local_tip,moderate,home-improvement
+costco,Costco,Higher labor standards and less partisan political spending,https://www.costco.com,national,easy,general-retail
+aldi,Aldi,European ownership with lower US political engagement,https://www.aldi.us,national,easy,general-retail
+lidl,Lidl,European ownership with minimal lobbying footprint,https://www.lidl.com,national,easy,general-retail
+grocery-coops,Grocery Co-ops,Member-owned cooperative grocery stores,,cooperative,moderate,general-retail
+patagonia,Patagonia,Corporate charter includes social mission and funds voting rights,https://www.patagonia.com,national,easy,clothing
+rei,REI,Cooperative ownership model with environmental advocacy,https://www.rei.com,cooperative,easy,clothing
+thredup,ThredUp,Online consignment with no corporate political spending,https://www.thredup.com,national,easy,clothing
+poshmark,Poshmark,Peer-to-peer resale marketplace,https://poshmark.com,national,easy,clothing
+local-consignment,Local Consignment Shops,Community-based resale and consignment stores,,local_tip,moderate,clothing
+local-restaurants,Local Restaurants,Immigrant-owned and family-owned local restaurants,,local_tip,easy,food-restaurants
+shake-shack,Shake Shack,Public DEI commitments and better labor policies than most chains,https://www.shakeshack.com,national,easy,food-restaurants
+apple,Apple,Stronger privacy posture and less ICE enforcement infrastructure,https://www.apple.com,national,easy,tech
+independent-saas,Independent SaaS Providers,Smaller vendors avoiding monopolized platforms,,local_tip,niche,tech
+credit-unions,Credit Unions,Member-owned financial cooperatives with minimal political spending,,cooperative,easy,banking
+community-banks,Community Banks,Local banks with smaller lobbying footprint,,local_tip,moderate,banking
+public-transit,Public Transit,Local public transportation systems,,local_tip,moderate,transportation
+ev-hybrid,Hybrid or EV Vehicles,Electric and hybrid vehicle options,,national,moderate,transportation
+car-sharing,Car-Sharing Programs,Zipcar and similar car-sharing services,https://www.zipcar.com,national,moderate,transportation
+pbs-npr,PBS and NPR,Public broadcasting with no corporate propaganda ecosystem,https://www.pbs.org,national,easy,media-entertainment
