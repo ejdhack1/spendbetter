@@ -51,12 +51,14 @@ async function recalculateAllScores() {
     let laborScore = 0
 
     for (const signal of companySignals) {
-      const signalType = signal.signal_type as { category: string; default_weight: number } | null
+      const signalTypeData = signal.signal_type as unknown
+      const signalType = Array.isArray(signalTypeData) ? signalTypeData[0] : signalTypeData
       if (!signalType) continue
 
-      const weight = signal.weight_override ?? signalType.default_weight
+      const st = signalType as { category: string; default_weight: number }
+      const weight = signal.weight_override ?? st.default_weight
 
-      switch (signalType.category) {
+      switch (st.category) {
         case 'democracy':
           democracyScore += weight
           break
