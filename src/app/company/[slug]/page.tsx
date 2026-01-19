@@ -194,8 +194,15 @@ export async function generateMetadata({ params }: PageProps) {
     return { title: 'Company Not Found' }
   }
 
+  const riskLabels = { green: 'Low Risk', yellow: 'Medium Risk', red: 'High Risk' }
+  const description = `${company.name} ethical rating: ${riskLabels[company.risk_level]}. View detailed scores on democracy, civil rights, and labor practices. Find ethical alternatives.`
+
   return {
-    title: `${company.name} - SpendBetter`,
-    description: `View ${company.name}'s ethical rating and find alternatives. Risk level: ${company.risk_level}.`
+    title: company.name,
+    description,
+    openGraph: {
+      title: `${company.name} - SpendBetter`,
+      description,
+    },
   }
 }

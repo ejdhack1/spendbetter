@@ -16,8 +16,29 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "SpendBetter - Ethical Spending Guide",
-  description: "Research tool for ethical spending decisions. Track corporate signals on democracy, civil rights, and labor practices.",
+  title: {
+    default: "SpendBetter - Ethical Spending Guide",
+    template: "%s | SpendBetter",
+  },
+  description: "Research tool for ethical spending decisions. Track corporate signals on democracy, civil rights, and labor practices. Find ethical alternatives.",
+  keywords: ["ethical shopping", "corporate accountability", "consumer guide", "ethical alternatives", "democracy", "civil rights", "labor rights"],
+  authors: [{ name: "SpendBetter" }],
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    siteName: "SpendBetter",
+    title: "SpendBetter - Ethical Spending Guide",
+    description: "Research companies based on their track record on democracy, civil rights, and labor practices. Find ethical alternatives.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SpendBetter - Ethical Spending Guide",
+    description: "Research companies based on their track record on democracy, civil rights, and labor practices.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

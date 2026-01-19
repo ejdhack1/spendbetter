@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { getCategories, getRecentlyFlaggedCompanies } from '@/lib/data'
 import { CompanyCard } from '@/components/CompanyCard'
+import { SearchBar } from '@/components/SearchBar'
 
 export default async function Home() {
   const [categories, recentlyFlagged] = await Promise.all([
@@ -20,6 +21,9 @@ export default async function Home() {
             Research companies based on their track record on democracy, civil rights,
             and labor practices. Find ethical alternatives.
           </p>
+          <div className="flex justify-center mb-8">
+            <SearchBar />
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="#categories"

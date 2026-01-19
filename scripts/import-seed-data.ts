@@ -270,10 +270,57 @@ async function importAlternatives() {
 async function recalculateAllScores() {
   console.log('Recalculating company scores...')
 
+  // Get all companies
   const { data: companies } = await supabase.from('companies').select('id')
 
+  // Get all signals with their signal types
+  const { data: signals } = await supabase
+    .from('signals')
+    .select('company_id, weight_override, signal_type:signal_types(category, default_weight)')
+
+  // Calculate scores for each company
   for (const company of companies || []) {
-    await supabase.rpc('recalculate_company_scores', { target_company_id: company.id })
+    const companySignals = signals?.filter((s) => s.company_id === company.id) || []
+
+    let democracyScore = 0
+    let civilRightsScore = 0
+    let laborScore = 0
+
+    for (const signal of companySignals) {
+      const signalTypeData = signal.signal_type as unknown
+      const signalType = Array.isArray(signalTypeData) ? signalTypeData[0] : signalTypeData
+      if (!signalType) continue
+
+      const st = signalType as { category: string; default_weight: number }
+      const weight = signal.weight_override ?? st.default_weight
+
+      switch (st.category) {
+        case 'democracy':
+          democracyScore += weight
+          break
+        case 'civil_rights':
+          civilRightsScore += weight
+          break
+        case 'labor':
+          laborScore += weight
+          break
+      }
+    }
+
+    const totalScore = democracyScore + civilRightsScore + laborScore
+    const riskLevel = totalScore >= 9 ? 'red' : totalScore >= 4 ? 'yellow' : 'green'
+
+    await supabase
+      .from('companies')
+      .update({
+        democracy_score: democracyScore,
+        civil_rights_score: civilRightsScore,
+        labor_score: laborScore,
+        total_score: totalScore,
+        risk_level: riskLevel,
+        last_updated: new Date().toISOString(),
+      })
+      .eq('id', company.id)
   }
 
   console.log(`  ✓ Recalculated scores for ${companies?.length || 0} companies`)

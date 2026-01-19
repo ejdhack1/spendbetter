@@ -97,8 +97,14 @@ export async function generateMetadata({ params }: PageProps) {
     return { title: 'Category Not Found' }
   }
 
+  const description = category.description || `Browse companies in the ${category.name} category. View ethical ratings and find alternatives.`
+
   return {
-    title: `${category.name} - SpendBetter`,
-    description: category.description || `Browse companies in the ${category.name} category and find ethical alternatives.`
+    title: category.name,
+    description,
+    openGraph: {
+      title: `${category.name} - SpendBetter`,
+      description,
+    },
   }
 }
