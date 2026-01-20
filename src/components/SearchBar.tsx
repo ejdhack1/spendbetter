@@ -15,13 +15,20 @@ type SearchResult = {
   risk_level: RiskLevel
 }
 
-export function SearchBar() {
+interface SearchBarProps {
+  variant?: 'default' | 'hero'
+}
+
+export function SearchBar({ variant = 'default' }: SearchBarProps) {
   const [query, setQuery] = useState('')
   const [results, setResults] = useState<SearchResult[]>([])
   const [isOpen, setIsOpen] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
+
+  const isHero = variant === 'hero'
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -33,6 +40,27 @@ export function SearchBar() {
     document.addEventListener('mousedown', handleClickOutside)
     return () => document.removeEventListener('mousedown', handleClickOutside)
   }, [])
+
+  // Keyboard shortcut: "/" to focus search (only for hero variant)
+  useEffect(() => {
+    if (!isHero) return
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      // Don't trigger if user is typing in an input/textarea
+      const target = event.target as HTMLElement
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable) {
+        return
+      }
+
+      if (event.key === '/') {
+        event.preventDefault()
+        inputRef.current?.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [isHero])
 
   useEffect(() => {
     const searchCompanies = async () => {
@@ -76,15 +104,25 @@ export function SearchBar() {
       <form onSubmit={handleSubmit}>
         <div className="relative">
           <input
+            ref={inputRef}
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onFocus={() => results.length > 0 && setIsOpen(true)}
             placeholder="Search companies..."
-            className="w-full px-4 py-3 pl-11 bg-white border border-gray-300 rounded-lg text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
+            className={`
+              w-full transition-all duration-300
+              ${isHero
+                ? 'px-5 py-4 pl-12 text-lg bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/50 focus:outline-none focus:bg-white/15 focus:border-white/40 focus:shadow-glow-white'
+                : 'px-4 py-3 pl-11 bg-white border border-ink-200 rounded-xl text-ink-950 placeholder-ink-400 focus:outline-none focus:ring-2 focus:ring-ink-950 focus:border-transparent'
+              }
+            `}
           />
           <svg
-            className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400"
+            className={`
+              absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5
+              ${isHero ? 'text-white/50' : 'text-ink-400'}
+            `}
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -98,26 +136,55 @@ export function SearchBar() {
           </svg>
           {isLoading && (
             <div className="absolute right-3.5 top-1/2 -translate-y-1/2">
-              <div className="w-5 h-5 border-2 border-gray-300 border-t-gray-600 rounded-full animate-spin" />
+              <div className={`
+                w-5 h-5 border-2 rounded-full animate-spin
+                ${isHero
+                  ? 'border-white/30 border-t-white'
+                  : 'border-ink-200 border-t-ink-600'
+                }
+              `} />
+            </div>
+          )}
+          {/* Keyboard hint */}
+          {isHero && !query && (
+            <div className="absolute right-4 top-1/2 -translate-y-1/2 hidden sm:flex items-center gap-1">
+              <kbd className="px-2 py-1 text-xs font-mono bg-white/10 text-white/40 rounded border border-white/10">
+                /
+              </kbd>
+              <span className="text-xs text-white/30">to search</span>
             </div>
           )}
         </div>
       </form>
 
       {isOpen && results.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
-          <ul className="divide-y divide-gray-100">
+        <div className={`
+          absolute z-50 w-full mt-2 rounded-xl shadow-lg overflow-hidden animate-fade-in
+          ${isHero
+            ? 'bg-ink-900/95 backdrop-blur-lg border border-white/10'
+            : 'bg-white border border-ink-100'
+          }
+        `}>
+          <ul className={`divide-y ${isHero ? 'divide-white/5' : 'divide-ink-50'}`}>
             {results.map((company) => (
               <li key={company.id}>
                 <Link
                   href={`/company/${company.slug}`}
                   onClick={() => setIsOpen(false)}
-                  className="flex items-center justify-between px-4 py-3 hover:bg-gray-50 transition-colors"
+                  className={`
+                    flex items-center justify-between px-4 py-3 transition-colors
+                    ${isHero
+                      ? 'hover:bg-white/5'
+                      : 'hover:bg-ink-50'
+                    }
+                  `}
                 >
                   <div>
-                    <span className="font-medium text-gray-900">{company.name}</span>
+                    <span className={`font-display font-medium ${isHero ? 'text-white' : 'text-ink-950'}`}>
+                      {company.name}
+                    </span>
                     {company.parent_company && (
-                      <span className="text-sm text-gray-500 ml-2">
+                      <span className={`text-sm ml-2 ${isHero ? 'text-white/50' : 'text-ink-400'}`}>
                         ({company.parent_company})
                       </span>
                     )}
@@ -131,7 +198,13 @@ export function SearchBar() {
             <Link
               href={`/search?q=${encodeURIComponent(query.trim())}`}
               onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 text-sm text-center text-gray-600 bg-gray-50 hover:bg-gray-100 border-t border-gray-200"
+              className={`
+                block px-4 py-3 text-sm text-center font-display transition-colors border-t
+                ${isHero
+                  ? 'text-white/60 bg-white/5 hover:bg-white/10 border-white/5'
+                  : 'text-ink-600 bg-ink-50 hover:bg-ink-100 border-ink-100'
+                }
+              `}
             >
               View all results for &quot;{query}&quot;
             </Link>
@@ -140,7 +213,13 @@ export function SearchBar() {
       )}
 
       {isOpen && query.length >= 2 && results.length === 0 && !isLoading && (
-        <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg p-4 text-center text-gray-500">
+        <div className={`
+          absolute z-50 w-full mt-2 rounded-xl shadow-lg p-4 text-center animate-fade-in
+          ${isHero
+            ? 'bg-ink-900/95 backdrop-blur-lg border border-white/10 text-white/50'
+            : 'bg-white border border-ink-100 text-ink-500'
+          }
+        `}>
           No companies found for &quot;{query}&quot;
         </div>
       )}

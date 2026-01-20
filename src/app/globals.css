@@ -3,25 +3,290 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #faf9f7;
+  --foreground: #0a0e14;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  /* Ink scale */
+  --ink-50: #f0f2f5;
+  --ink-100: #dce1e8;
+  --ink-200: #b8c3d1;
+  --ink-300: #94a5ba;
+  --ink-400: #7087a3;
+  --ink-500: #4c698c;
+  --ink-600: #3d5470;
+  --ink-700: #2e3f54;
+  --ink-800: #1f2a38;
+  --ink-900: #141c26;
+  --ink-950: #0a0e14;
+
+  /* Paper */
+  --paper-warm: #faf9f7;
+
+  /* Category colors */
+  --category-democracy: #3b82f6;
+  --category-civil: #a855f7;
+  --category-labor: #f97316;
+
+  /* Risk colors */
+  --risk-green-bg: #022c22;
+  --risk-green-text: #4ade80;
+  --risk-green-glow: rgba(74, 222, 128, 0.3);
+
+  --risk-yellow-bg: #451a03;
+  --risk-yellow-text: #fbbf24;
+  --risk-yellow-glow: rgba(251, 191, 36, 0.3);
+
+  --risk-red-bg: #450a0a;
+  --risk-red-text: #f87171;
+  --risk-red-glow: rgba(248, 113, 113, 0.3);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+@layer base {
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: var(--ink-950);
+  }
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Gradient text utility */
+  .text-gradient {
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Grid pattern for hero */
+  .bg-grid-pattern {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  /* Noise overlay */
+  .bg-noise {
+    position: relative;
+  }
+
+  .bg-noise::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .glass-dark {
+    background: rgba(10, 14, 20, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Card hover animation */
+  .card-hover {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+  }
+
+  /* Link underline animation */
+  .link-underline {
+    position: relative;
+  }
+
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0;
+    height: 2px;
+    background: currentColor;
+    transition: width 0.3s ease;
+  }
+
+  .link-underline:hover::after {
+    width: 100%;
+  }
+
+  /* Stagger animation delays */
+  .stagger-1 { animation-delay: 0.05s; }
+  .stagger-2 { animation-delay: 0.1s; }
+  .stagger-3 { animation-delay: 0.15s; }
+  .stagger-4 { animation-delay: 0.2s; }
+  .stagger-5 { animation-delay: 0.25s; }
+  .stagger-6 { animation-delay: 0.3s; }
+
+  /* Focus ring for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ink-400 focus:ring-offset-2;
+  }
+
+  .focus-ring-light {
+    @apply focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-ink-950;
+  }
+}
+
+@layer components {
+  /* Risk badge glow effects */
+  .risk-badge-green {
+    background-color: var(--risk-green-bg);
+    color: var(--risk-green-text);
+    box-shadow: 0 0 20px var(--risk-green-glow);
+  }
+
+  .risk-badge-yellow {
+    background-color: var(--risk-yellow-bg);
+    color: var(--risk-yellow-text);
+    box-shadow: 0 0 20px var(--risk-yellow-glow);
+  }
+
+  .risk-badge-red {
+    background-color: var(--risk-red-bg);
+    color: var(--risk-red-text);
+    box-shadow: 0 0 20px var(--risk-red-glow);
+  }
+
+  /* Pulsing dot animation for risk badges */
+  .pulse-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+
+  @keyframes pulse-dot {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    50% {
+      opacity: 0.7;
+      transform: scale(1.2);
+    }
+  }
+
+  /* Hero search bar */
+  .search-hero {
+    @apply w-full px-5 py-4 pl-12 text-lg;
+    @apply bg-white/10 border border-white/20 rounded-xl;
+    @apply text-white placeholder-white/50;
+    @apply focus:outline-none focus:bg-white/15 focus:border-white/40;
+    @apply transition-all duration-300;
+  }
+
+  .search-hero:focus {
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.15);
+  }
+
+  /* Category indicator dots */
+  .category-dot {
+    @apply w-2 h-2 rounded-full;
+  }
+
+  .category-dot-democracy {
+    background-color: var(--category-democracy);
+  }
+
+  .category-dot-civil {
+    background-color: var(--category-civil);
+  }
+
+  .category-dot-labor {
+    background-color: var(--category-labor);
+  }
+
+  /* Score display (monospace) */
+  .score-display {
+    font-family: var(--font-jetbrains-mono), monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+  }
+
+  /* Section headers */
+  .section-header {
+    @apply font-display text-2xl font-semibold tracking-tight;
+    color: var(--ink-950);
+  }
+
+  /* Card base styles */
+  .card {
+    @apply bg-white border border-ink-100 rounded-xl p-5;
+    @apply transition-all duration-300;
+  }
+
+  .card:hover {
+    @apply border-ink-200 shadow-card-hover;
+    transform: translateY(-2px);
+  }
+
+  /* Alternative card (green accent) */
+  .card-alternative {
+    @apply bg-gradient-to-br from-emerald-50/50 to-white;
+    @apply border border-emerald-100 rounded-xl p-5;
+    @apply relative overflow-hidden;
+  }
+
+  .card-alternative::before {
+    content: "";
+    @apply absolute top-0 left-0 right-0 h-1;
+    background: linear-gradient(90deg, #10b981, #34d399);
+  }
+
+  /* Button primary */
+  .btn-primary {
+    @apply px-6 py-3 font-display font-medium rounded-lg;
+    @apply bg-ink-950 text-white;
+    @apply hover:bg-ink-800 transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-ink-400 focus:ring-offset-2;
+  }
+
+  /* Button secondary */
+  .btn-secondary {
+    @apply px-6 py-3 font-display font-medium rounded-lg;
+    @apply bg-white text-ink-950 border border-ink-200;
+    @apply hover:bg-ink-50 hover:border-ink-300 transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-ink-400 focus:ring-offset-2;
+  }
+
+  /* Button hero (on dark background) */
+  .btn-hero {
+    @apply px-6 py-3 font-display font-medium rounded-lg;
+    @apply bg-white text-ink-950;
+    @apply hover:bg-white/90 transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/50;
+  }
+
+  .btn-hero-outline {
+    @apply px-6 py-3 font-display font-medium rounded-lg;
+    @apply bg-transparent text-white border border-white/30;
+    @apply hover:bg-white/10 hover:border-white/50 transition-colors duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/50;
   }
 }

@@ -10,50 +10,69 @@ interface RiskBadgeProps {
 
 const riskConfig = {
   green: {
-    bg: 'bg-green-100',
-    text: 'text-green-800',
-    border: 'border-green-200',
+    badgeClass: 'risk-badge-green',
+    dotColor: 'bg-green-400',
     label: 'Low Risk'
   },
   yellow: {
-    bg: 'bg-yellow-100',
-    text: 'text-yellow-800',
-    border: 'border-yellow-200',
+    badgeClass: 'risk-badge-yellow',
+    dotColor: 'bg-yellow-400',
     label: 'Medium Risk'
   },
   red: {
-    bg: 'bg-red-100',
-    text: 'text-red-800',
-    border: 'border-red-200',
+    badgeClass: 'risk-badge-red',
+    dotColor: 'bg-red-400',
     label: 'High Risk'
   }
 }
 
 const sizeConfig = {
-  sm: 'px-2 py-0.5 text-xs',
-  md: 'px-2.5 py-1 text-sm',
-  lg: 'px-3 py-1.5 text-base'
+  sm: {
+    badge: 'px-2.5 py-1 text-xs',
+    dot: 'w-1.5 h-1.5'
+  },
+  md: {
+    badge: 'px-3 py-1.5 text-sm',
+    dot: 'w-2 h-2'
+  },
+  lg: {
+    badge: 'px-4 py-2 text-base',
+    dot: 'w-2.5 h-2.5'
+  }
 }
 
 export function RiskBadge({ level, size = 'md', showLabel = true }: RiskBadgeProps) {
   const config = riskConfig[level]
-  const sizeClass = sizeConfig[size]
+  const sizeClasses = sizeConfig[size]
 
   return (
     <span
       className={`
-        inline-flex items-center gap-1.5 rounded-full border font-medium
-        ${config.bg} ${config.text} ${config.border} ${sizeClass}
+        inline-flex items-center gap-2 rounded-full font-display font-medium
+        ${config.badgeClass} ${sizeClasses.badge}
       `}
     >
-      <span
-        className={`
-          rounded-full
-          ${size === 'sm' ? 'w-1.5 h-1.5' : size === 'md' ? 'w-2 h-2' : 'w-2.5 h-2.5'}
-          ${level === 'green' ? 'bg-green-500' : level === 'yellow' ? 'bg-yellow-500' : 'bg-red-500'}
-        `}
-      />
-      {showLabel && config.label}
+      {/* Pulsing dot indicator */}
+      <span className="relative flex">
+        <span
+          className={`
+            absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping
+            ${config.dotColor}
+          `}
+          style={{ animationDuration: '2s' }}
+        />
+        <span
+          className={`
+            relative inline-flex rounded-full
+            ${config.dotColor} ${sizeClasses.dot}
+          `}
+        />
+      </span>
+      {showLabel && (
+        <span className="font-mono text-[0.9em] tracking-tight">
+          {config.label}
+        </span>
+      )}
     </span>
   )
 }

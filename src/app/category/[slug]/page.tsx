@@ -25,63 +25,78 @@ export default async function CategoryPage({ params }: PageProps) {
   })
 
   return (
-    <div className="py-8 px-4">
-      <div className="max-w-6xl mx-auto">
-        {/* Breadcrumb */}
-        <nav className="mb-6 text-sm">
-          <Link href="/" className="text-gray-500 hover:text-gray-700">Home</Link>
-          <span className="mx-2 text-gray-400">/</span>
-          <span className="text-gray-900">{category.name}</span>
-        </nav>
+    <div className="min-h-screen bg-paper">
+      {/* Header spacer for fixed header */}
+      <div className="h-16" />
 
-        {/* Header */}
-        <div className="mb-8">
-          <div className="flex items-center gap-3 mb-2">
-            {category.icon && <span className="text-4xl">{category.icon}</span>}
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-900">
-              {category.name}
-            </h1>
-          </div>
-          {category.description && (
-            <p className="text-gray-600">{category.description}</p>
-          )}
-        </div>
+      <div className="py-10 px-4">
+        <div className="max-w-6xl mx-auto">
+          {/* Breadcrumb */}
+          <nav className="mb-8 text-sm font-display">
+            <Link href="/" className="text-ink-400 hover:text-ink-600 transition-colors">Home</Link>
+            <span className="mx-2 text-ink-300">/</span>
+            <span className="text-ink-950 font-medium">{category.name}</span>
+          </nav>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Companies */}
-          <div className="lg:col-span-2">
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Companies ({companies.length})
-            </h2>
-            {companies.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {sortedCompanies.map((company) => (
-                  <CompanyCard key={company.id} company={company} />
-                ))}
-              </div>
-            ) : (
-              <p className="text-gray-500 text-center py-8 bg-gray-50 rounded-lg">
-                No companies in this category yet.
+          {/* Header */}
+          <div className="mb-10">
+            <div className="flex items-center gap-4 mb-3">
+              {category.icon && (
+                <span className="text-5xl">{category.icon}</span>
+              )}
+              <h1 className="font-serif text-3xl sm:text-4xl text-ink-950">
+                {category.name}
+              </h1>
+            </div>
+            {category.description && (
+              <p className="text-ink-600 text-lg leading-relaxed max-w-2xl">
+                {category.description}
               </p>
             )}
           </div>
 
-          {/* Alternatives Sidebar */}
-          <div>
-            <h2 className="text-lg font-semibold text-gray-900 mb-4">
-              Alternatives
-            </h2>
-            {alternatives.length > 0 ? (
-              <div className="space-y-4">
-                {alternatives.map((alternative) => (
-                  <AlternativeCard key={alternative.id} alternative={alternative} />
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Companies */}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-2 mb-6">
+                <div className="w-1 h-6 bg-gradient-to-b from-red-500 via-yellow-500 to-green-500 rounded-full" />
+                <h2 className="font-display font-semibold text-ink-950 text-lg">
+                  Companies ({companies.length})
+                </h2>
               </div>
-            ) : (
-              <p className="text-gray-500 text-center py-8 bg-gray-50 rounded-lg">
-                No alternatives listed yet.
-              </p>
-            )}
+              {companies.length > 0 ? (
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {sortedCompanies.map((company, index) => (
+                    <CompanyCard key={company.id} company={company} index={index} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-ink-500 text-center py-12 bg-white rounded-xl border border-ink-100 font-display">
+                  No companies in this category yet.
+                </div>
+              )}
+            </div>
+
+            {/* Alternatives Sidebar */}
+            <div>
+              <div className="flex items-center gap-2 mb-6">
+                <span className="w-2 h-2 rounded-full bg-emerald-500" />
+                <h2 className="font-display font-semibold text-ink-950 text-lg">
+                  Alternatives
+                </h2>
+              </div>
+              {alternatives.length > 0 ? (
+                <div className="space-y-4">
+                  {alternatives.map((alternative, index) => (
+                    <AlternativeCard key={alternative.id} alternative={alternative} index={index} />
+                  ))}
+                </div>
+              ) : (
+                <div className="text-ink-500 text-center py-12 bg-white rounded-xl border border-ink-100 font-display">
+                  No alternatives listed yet.
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>

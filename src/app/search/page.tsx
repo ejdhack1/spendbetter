@@ -33,18 +33,23 @@ export default async function SearchPage({ searchParams }: Props) {
   const results = query ? await searchCompanies(query) : []
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-white border-b border-gray-200 py-8 px-4">
+    <div className="min-h-screen bg-paper">
+      {/* Header spacer for fixed header */}
+      <div className="h-16" />
+
+      {/* Search Header */}
+      <div className="bg-white border-b border-ink-100 py-10 px-4">
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Search Companies</h1>
+          <h1 className="font-serif text-3xl text-ink-950 mb-6">Search Companies</h1>
           <SearchBar />
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto py-8 px-4">
+      {/* Results */}
+      <div className="max-w-6xl mx-auto py-10 px-4">
         {query ? (
           <>
-            <p className="text-gray-600 mb-6">
+            <p className="text-ink-500 font-display mb-6">
               {results.length === 0
                 ? `No results found for "${query}"`
                 : `${results.length} result${results.length === 1 ? '' : 's'} for "${query}"`
@@ -52,22 +57,22 @@ export default async function SearchPage({ searchParams }: Props) {
             </p>
 
             {results.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {results.map((company) => (
-                  <CompanyCard key={company.id} company={company} />
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {results.map((company, index) => (
+                  <CompanyCard key={company.id} company={company} index={index} />
                 ))}
               </div>
             ) : (
-              <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
-                <p className="text-gray-500 mb-4">
+              <div className="bg-white rounded-xl border border-ink-100 p-10 text-center">
+                <p className="text-ink-600 font-display mb-4">
                   We couldn&apos;t find any companies matching your search.
                 </p>
-                <p className="text-sm text-gray-400 mb-6">
+                <p className="text-sm text-ink-400 mb-6">
                   Try a different search term or browse by category.
                 </p>
                 <Link
                   href="/#categories"
-                  className="inline-block px-4 py-2 bg-gray-900 text-white rounded-lg font-medium hover:bg-gray-800 transition-colors"
+                  className="btn-primary inline-block"
                 >
                   Browse Categories
                 </Link>
@@ -75,12 +80,12 @@ export default async function SearchPage({ searchParams }: Props) {
             )}
           </>
         ) : (
-          <div className="bg-white rounded-lg border border-gray-200 p-8 text-center">
-            <p className="text-gray-500 mb-4">
+          <div className="bg-white rounded-xl border border-ink-100 p-10 text-center">
+            <p className="text-ink-600 font-display mb-4">
               Enter a company name to search.
             </p>
-            <p className="text-sm text-gray-400">
-              Or <Link href="/#categories" className="text-gray-900 underline hover:no-underline">browse by category</Link> to explore companies.
+            <p className="text-sm text-ink-400">
+              Or <Link href="/#categories" className="text-ink-950 underline hover:no-underline">browse by category</Link> to explore companies.
             </p>
           </div>
         )}

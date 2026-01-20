@@ -1,34 +1,110 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { usePathname } from 'next/navigation'
+import { useState, useEffect } from 'react'
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname()
+
+  // Only show transparent header on home page
+  const isHomePage = pathname === '/'
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50)
+    }
+
+    // Check initial scroll position
+    handleScroll()
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // On non-home pages, always use solid header style
+  const useSolidStyle = !isHomePage || scrolled
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header
+      className={`
+        fixed top-0 left-0 right-0 z-50 transition-all duration-300
+        ${useSolidStyle
+          ? 'glass border-b border-ink-100 shadow-glass'
+          : 'bg-transparent'
+        }
+      `}
+    >
       <nav className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-gray-900">SpendBetter</span>
+          {/* Logo */}
+          <Link href="/" className="flex items-center gap-2.5 group">
+            {/* Logo mark - three colored dots */}
+            <span className="flex items-center gap-1">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 group-hover:scale-110 transition-transform" />
+              <span className="w-2.5 h-2.5 rounded-full bg-yellow-500 group-hover:scale-110 transition-transform delay-75" />
+              <span className="w-2.5 h-2.5 rounded-full bg-green-500 group-hover:scale-110 transition-transform delay-150" />
+            </span>
+            <span className={`
+              text-xl font-display font-semibold tracking-tight transition-colors
+              ${useSolidStyle ? 'text-ink-950' : 'text-white'}
+            `}>
+              SpendBetter
+            </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
-            <Link href="/" className="text-gray-600 hover:text-gray-900">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            <Link
+              href="/"
+              className={`
+                link-underline font-display text-sm font-medium transition-colors
+                ${useSolidStyle
+                  ? 'text-ink-600 hover:text-ink-950'
+                  : 'text-white/80 hover:text-white'
+                }
+              `}
+            >
               Home
             </Link>
-            <Link href="/about" className="text-gray-600 hover:text-gray-900">
+            <Link
+              href="/about"
+              className={`
+                link-underline font-display text-sm font-medium transition-colors
+                ${useSolidStyle
+                  ? 'text-ink-600 hover:text-ink-950'
+                  : 'text-white/80 hover:text-white'
+                }
+              `}
+            >
               About
             </Link>
-            <Link href="/methodology" className="text-gray-600 hover:text-gray-900">
+            <Link
+              href="/methodology"
+              className={`
+                link-underline font-display text-sm font-medium transition-colors
+                ${useSolidStyle
+                  ? 'text-ink-600 hover:text-ink-950'
+                  : 'text-white/80 hover:text-white'
+                }
+              `}
+            >
               Methodology
             </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden p-2 text-gray-600"
+            className={`
+              md:hidden p-2 rounded-lg transition-colors
+              ${useSolidStyle
+                ? 'text-ink-600 hover:bg-ink-50'
+                : 'text-white hover:bg-white/10'
+              }
+            `}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
@@ -43,26 +119,48 @@ export function Header() {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col gap-3">
+          <div className={`
+            md:hidden py-4 border-t animate-fade-in
+            ${useSolidStyle ? 'border-ink-100' : 'border-white/10'}
+          `}>
+            <div className="flex flex-col gap-1">
               <Link
                 href="/"
-                className="text-gray-600 hover:text-gray-900 py-2"
+                className={`
+                  font-display text-sm font-medium py-2 px-3 rounded-lg transition-colors
+                  ${useSolidStyle
+                    ? 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }
+                `}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Home
               </Link>
               <Link
                 href="/about"
-                className="text-gray-600 hover:text-gray-900 py-2"
+                className={`
+                  font-display text-sm font-medium py-2 px-3 rounded-lg transition-colors
+                  ${useSolidStyle
+                    ? 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }
+                `}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </Link>
               <Link
                 href="/methodology"
-                className="text-gray-600 hover:text-gray-900 py-2"
+                className={`
+                  font-display text-sm font-medium py-2 px-3 rounded-lg transition-colors
+                  ${useSolidStyle
+                    ? 'text-ink-600 hover:text-ink-950 hover:bg-ink-50'
+                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                  }
+                `}
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Methodology
